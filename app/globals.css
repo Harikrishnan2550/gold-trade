@@ -1,0 +1,217 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Outfit:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+@import "tailwindcss";
+
+/* LOCAL FONT */
+
+@font-face {
+  font-family: 'Nasalization';
+  src: url('/fonts/nasalization.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* DESIGN TOKENS */
+
+@theme {
+
+--color-gold:#D4AF37;
+--color-gold-light:#F9E498;
+--color-gold-dark:#AA8A22;
+--color-premium:#050505;
+
+--font-nasal:"Nasalization", sans-serif;
+--font-outfit:"Outfit", sans-serif;
+--font-poppins:"Poppins", sans-serif;
+--font-audiowide:"Audiowide", sans-serif;
+
+}
+
+/* BASE */
+
+body{
+
+background:#050505;
+
+color:white;
+
+font-family:var(--font-poppins);
+
+-webkit-font-smoothing:antialiased;
+
+-moz-osx-font-smoothing:grayscale;
+
+}
+
+/* HEADINGS USE AUDIOWIDE */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+font-family:var(--font-audiowide);
+
+letter-spacing:.05em;
+
+}
+
+/* NAV + BUTTON + FOOTER TITLES */
+
+nav,
+button,
+footer h2,
+footer h3{
+
+font-family:var(--font-audiowide);
+
+}
+
+/* FONT UTILITIES */
+
+@utility font-heading{
+
+font-family:var(--font-audiowide);
+
+}
+
+@utility font-body{
+
+font-family:var(--font-poppins);
+
+}
+
+@utility font-audiowide{
+
+font-family:var(--font-audiowide);
+
+}
+
+@utility font-outfit{
+
+font-family:var(--font-outfit);
+
+}
+
+/* COLORS */
+
+@utility text-gold{
+
+color:var(--color-gold);
+
+}
+
+@utility bg-premium{
+
+background:var(--color-premium);
+
+}
+
+@utility bg-card{
+
+background:#0A0A0A;
+
+}
+
+@utility rounded-premium{
+
+border-radius:20px;
+
+}
+
+/* BUTTON */
+
+@utility btn-primary{
+
+font-family:var(--font-audiowide);
+
+background:linear-gradient(135deg,#D4AF37,#AA8A22);
+
+color:black;
+
+padding:14px 32px;
+
+border-radius:14px;
+
+transition:.4s;
+
+letter-spacing:.08em;
+
+}
+
+/* hover must NOT be inside @utility */
+
+.btn-primary:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 20px 40px -10px rgba(212,175,55,0.5);
+
+}
+
+/* TECH LABEL */
+
+@utility text-tech-label{
+
+font-family:var(--font-audiowide);
+
+text-transform:uppercase;
+
+letter-spacing:.2em;
+
+font-size:11px;
+
+color:#D4AF37;
+
+}
+
+/* TYPOGRAPHY */
+
+@utility tracking-tighter{
+
+letter-spacing:-0.06em;
+
+}
+
+@utility leading-tight{
+
+line-height:.95;
+
+}
+
+/* ANIMATIONS */
+
+@keyframes shimmer{
+
+from{
+transform:translateX(-100%) skewX(-20deg);
+}
+
+to{
+transform:translateX(200%) skewX(-20deg);
+}
+
+}
+
+.animate-shimmer{
+
+animation:shimmer 2.5s infinite;
+
+}
+
+@utility text-gold-gradient{
+
+background:linear-gradient(
+to right,
+#AA8A22 0%,
+#F9E498 50%,
+#AA8A22 100%
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
