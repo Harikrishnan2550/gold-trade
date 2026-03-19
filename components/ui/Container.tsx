@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 
+// The interface MUST include className? to pass the build
 interface ContainerProps {
   children: ReactNode;
-  className?: string; // This tells TypeScript that className is allowed and optional
+  className?: string; 
 }
 
 export default function Container({ children, className = "" }: ContainerProps) {
