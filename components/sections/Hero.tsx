@@ -36,7 +36,7 @@ export default function Hero() {
                 </span>
               </motion.div>
 
-              <h1 className="font-nasal text-4xl sm:text-5xl lg:text-6xl leading-[1.1] lg:leading-[1.05] text-[#1A1A1A] mb-6 lg:mb-8 tracking-tighter font-semibold-nasal">
+              <h1 className="font-nasal text-4xl sm:text-5xl lg:text-5xl leading-[1.1] lg:leading-[1.05] text-[#1A1A1A] mb-6 lg:mb-8 tracking-tighter font-semibold-nasal">
                 PIONEERING <br />
                 <span className="text-gold-gradient italic">THE GOLD STANDARD</span>
               </h1>
