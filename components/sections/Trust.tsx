@@ -83,7 +83,7 @@ export default function Trust() {
                   <Icon className="text-gold group-hover:text-white transition-colors" size={24} />
                 </div>
 
-                <h3 className="font-nasal text-lg mb-4  tracking-tight">
+                <h3 className="font-nasal text-lg mb-4 text-gold-gradient  tracking-tight">
                   {item.title}
                 </h3>
 

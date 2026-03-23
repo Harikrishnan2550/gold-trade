@@ -85,7 +85,7 @@ export default function Services() {
                   <Icon className="text-gold group-hover:text-white group-hover:scale-110 transition-all duration-500" size={32} />
                 </div>
 
-                <h3 className="font-nasal text-2xl mb-4 text-white tracking-tight group-hover:text-gold transition-colors">
+                <h3 className="font-nasal text-2xl mb-4 text-gold-gradient tracking-tight group-hover:text-gold transition-colors">
                   {item.title}
                 </h3>
 

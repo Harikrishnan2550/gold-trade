@@ -88,7 +88,7 @@ export default function Values() {
                   />
                 </div>
 
-                <h3 className="font-nasal text-lg mb-4 text-white tracking-widest uppercase group-hover:text-gold transition-colors">
+                <h3 className="font-nasal text-lg mb-4 text-gold-gradient tracking-widest uppercase group-hover:text-gold transition-colors">
                   {v.title}
                 </h3>
                 

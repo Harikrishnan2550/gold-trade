@@ -110,16 +110,7 @@ export default function Footer() {
                 © 2026 ZANORA FZC. ALL RIGHTS RESERVED.
               </p>
               {/* DEVELOPER CREDIT */}
-              <p className="text-[9px] text-[#1A1A1A]/20 font-inter tracking-wider flex items-center gap-1.5 uppercase">
-                Developed by 
-                <Link 
-                  href="https://winshineinfotech.com/" 
-                  target="_blank" 
-                  className="text-[#1A1A1A]/40 hover:text-gold transition-colors font-semibold flex items-center gap-0.5"
-                >
-                  Winshine Infotech <ExternalLink size={10} />
-                </Link>
-              </p>
+              
             </div>
 
             <div className="flex gap-10 text-[10px] text-[#1A1A1A]/40 font-nasal tracking-[0.3em] uppercase">

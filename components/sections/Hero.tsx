@@ -15,7 +15,7 @@ const slides = [
   },
   {
     id: 2,
-    title: <>ADVANCED <br /><span className="text-orange-400 italic">DIGITAL TRADING</span></>,
+    title: <>ADVANCED <br /><span className="text-gold-light italic">DIGITAL TRADING</span></>,
     content: "Institutional-grade liquidity and real-time market analytics at your fingertips.",
     image: "/gold-banner3.png", //
   }
