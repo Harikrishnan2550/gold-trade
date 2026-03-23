@@ -13,7 +13,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white pt-20 pb-10 overflow-hidden">
+    <footer className="bg-white  pb-10 overflow-hidden">
       <Container>
         {/* THE ZANORA FZC WATERMARK */}
         <div className="relative h-40 lg:h-64 mt-[-4rem] lg:mt-[-1rem] z-0 select-none pointer-events-none flex justify-center items-center ">
@@ -91,7 +91,7 @@ export default function Footer() {
                   <div className="w-10 h-10 bg-gold/5 rounded-xl flex items-center justify-center border border-gold/10">
                     <Phone size={18} className="text-gold" />
                   </div>
-                  <p className="text-sm text-[#1A1A1A]/60 font-inter font-medium">+971 6 557 0000</p>
+                  <p className="text-sm text-[#1A1A1A]/60 font-inter font-medium">+971 55 637 0424</p>
                 </div>
                 <div className="flex gap-5 items-center">
                   <div className="w-10 h-10 bg-gold/5 rounded-xl flex items-center justify-center border border-gold/10">

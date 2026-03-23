@@ -22,7 +22,7 @@ export default function MarketsHero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
           <span className="text-[#1A1A1A]/60 font-nasal text-[10px] uppercase tracking-[0.2em]">
-            Dubai Market: <span className="text-[#1A1A1A] font-bold">Open</span>
+            Sharjah Terminal: <span className="text-[#1A1A1A] font-bold">Live</span>
           </span>
         </motion.div>
 
@@ -33,7 +33,7 @@ export default function MarketsHero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="font-nasal text-6xl lg:text-8xl tracking-tighter leading-tight text-[#1A1A1A]"
         >
-          Trading <br />
+          Global <br />
           <span className="text-gold-gradient italic">Markets</span>
         </motion.h1>
 
@@ -44,8 +44,8 @@ export default function MarketsHero() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-[#1A1A1A]/50 mt-10 max-w-2xl mx-auto text-lg lg:text-2xl font-inter leading-relaxed"
         >
-          Access global precious metal liquidity and regional Dubai expertise 
-          through our high-speed trading infrastructure and institutional networks.
+          Access global bullion liquidity and SAIF Zone regional expertise 
+          through Zanora FZC’s high-speed trading infrastructure and institutional networks.
         </motion.p>
 
         {/* Decorative Data Line */}

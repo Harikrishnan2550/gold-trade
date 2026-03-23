@@ -2,12 +2,12 @@
 
 import Container from "../ui/Container";
 import { motion } from "framer-motion";
-import { Phone, ArrowRight, MessageSquare } from "lucide-react";
+import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
 export default function CTA() {
   return (
-    <section className="py-32 bg-white overflow-hidden">
+    <section className="py-10 bg-white overflow-hidden">
       <Container>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -27,17 +27,17 @@ export default function CTA() {
               whileInView={{ opacity: 1, y: 0 }}
               className="text-white/80 font-nasal tracking-[0.5em] text-[10px] uppercase mb-8 block"
             >
-              Ready to begin?
+              Secure Your Future
             </motion.span>
 
             <h2 className="font-nasal text-5xl lg:text-7xl leading-tight text-white tracking-tighter mb-8">
-              Start Trading Gold With <br />
-              <span className="text-[#1A1A1A] italic">Dubai Experts</span>
+              Execute Bullion With <br />
+              <span className="text-[#1A1A1A] italic uppercase">Zanora FZC</span>
             </h2>
 
             <p className="text-white/80 mt-6 max-w-2xl mx-auto text-lg lg:text-xl font-inter leading-relaxed">
-              Connect with our professional trading floor today. Secure your 
-              wealth with institutional-grade assets and transparent execution.
+              Connect with our SAIF Zone institutional desk today. Protect your 
+              wealth with investment-grade assets and transparent global execution.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-6 mt-14">
@@ -46,7 +46,7 @@ export default function CTA() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#1A1A1A] text-white px-12 py-5 rounded-full font-nasal text-sm tracking-widest flex items-center justify-center gap-3 shadow-2xl transition-all"
+                  className="bg-[#1A1A1A] text-white px-12 py-5 rounded-full font-nasal text-sm tracking-widest flex items-center justify-center gap-3 shadow-2xl transition-all ml-5 lg:ml-0"
                 >
                   <MessageSquare size={18} />
                   GET IN TOUCH
@@ -64,9 +64,14 @@ export default function CTA() {
               </motion.button>
             </div>
             
-            <p className="mt-10 text-white/40 text-[10px] uppercase tracking-[0.2em] font-nasal">
-              Licensed & Regulated Trading Operations
-            </p>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-10 text-white/40 text-[10px] uppercase tracking-[0.2em] font-nasal"
+            >
+              Licensed under SAIF Zone Authority • Regulated Operations
+            </motion.p>
           </div>
         </motion.div>
       </Container>

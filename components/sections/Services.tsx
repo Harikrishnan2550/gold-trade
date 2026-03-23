@@ -78,23 +78,23 @@ export default function Services() {
                   ease: [0.22, 1, 0.36, 1]
                 }}
                 viewport={{ once: true }}
-                className="premium-card p-10 bg-white group hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-3 transition-all duration-700 ease-out"
+                className="premium-card p-10 bg-black group hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-3 transition-all duration-700 ease-out rounded-2xl"
               >
                 {/* Icon Circle */}
-                <div className="w-16 h-16 rounded-3xl bg-gold/5 flex items-center justify-center mb-8 border border-gold/10 group-hover:bg-gold group-hover:text-white transition-all duration-500">
+                <div className="w-16 h-16 rounded-3xl bg-white flex items-center justify-center mb-8 border border-gold/10 group-hover:bg-gold group-hover:text-white transition-all duration-500">
                   <Icon className="text-gold group-hover:text-white group-hover:scale-110 transition-all duration-500" size={32} />
                 </div>
 
-                <h3 className="font-nasal text-2xl mb-4 text-[#1A1A1A] tracking-tight group-hover:text-gold transition-colors">
+                <h3 className="font-nasal text-2xl mb-4 text-white tracking-tight group-hover:text-gold transition-colors">
                   {item.title}
                 </h3>
 
-                <p className="text-[#1A1A1A]/60 text-sm leading-relaxed mb-8 h-12">
+                <p className="text-white   text-sm leading-relaxed mb-8 h-12">
                   {item.desc}
                 </p>
 
                 {/* Subtle Action Text */}
-                <div className="flex items-center gap-2 text-gold font-nasal text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-500">
+                <div className="flex items-center mt-16 gap-2 text-gold font-nasal text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-500">
                   Learn More <ArrowRight size={12} />
                 </div>
               </motion.div>

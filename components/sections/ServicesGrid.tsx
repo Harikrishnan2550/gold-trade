@@ -5,8 +5,8 @@ import {
   Coins,
   Briefcase,
   LineChart,
-  BarChart3,
-  Shield,
+  ShieldCheck,
+  PlaneTakeoff,
   Globe,
   ArrowUpRight
 } from "lucide-react";
@@ -14,42 +14,42 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    title: "Gold Trading",
-    desc: "Institutional-grade spot gold and silver execution with deep market liquidity.",
+    title: "Bullion Execution",
+    desc: "Institutional-grade physical gold and silver trading with deep market liquidity and rapid spot settlement.",
     icon: Coins,
   },
   {
-    title: "Investment Advisory",
-    desc: "Bespoke consulting for precious metal asset allocation and wealth preservation.",
+    title: "Asset Preservation",
+    desc: "Bespoke consulting for precious metal allocation, focused on long-term capital stability and wealth security.",
     icon: Briefcase,
   },
   {
-    title: "Market Analysis",
-    desc: "Strategic technical and fundamental insights across global gold trading hubs.",
+    title: "Market Intelligence",
+    desc: "Strategic technical insights and fundamental analysis across the UAE and global bullion trading circuits.",
     icon: LineChart,
   },
   {
-    title: "Portfolio Management",
-    desc: "Comprehensive oversight of physical and digital precious metal holdings.",
-    icon: BarChart3,
+    title: "Physical Logistics",
+    desc: "Direct air-side access via the SAIF Zone for secure, high-speed transit and global movement of bullion.",
+    icon: PlaneTakeoff,
   },
   {
-    title: "Secure Transactions",
-    desc: "Multi-layered security protocols for safe, transparent, and insured settlements.",
-    icon: Shield,
+    title: "Vaulting & Security",
+    desc: "Licensed custodial services featuring multi-layered security protocols and fully insured physical storage.",
+    icon: ShieldCheck,
   },
   {
-    title: "Global Markets",
-    desc: "Unrivaled connectivity between Dubai, Sharjah, and international trade networks.",
+    title: "Trade Corridors",
+    desc: "Unrivaled connectivity bridging Sharjah's logistical hub with the international bullion trade networks.",
     icon: Globe,
   },
 ];
 
 export default function ServicesGrid() {
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Detail: Extremely subtle radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.03),transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.04),transparent_70%)] pointer-events-none" />
 
       <Container>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
@@ -63,39 +63,42 @@ export default function ServicesGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
+                  duration: 0.8,
                   delay: index * 0.1,
                   ease: [0.22, 1, 0.36, 1]
                 }}
-                className="group relative bg-white p-12 rounded-[3.5rem] border border-black/5 hover:border-gold/30 transition-all duration-700 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] overflow-hidden"
+                className="group relative bg-white p-12 rounded-[3.5rem] border border-black/5 hover:border-gold/30 transition-all duration-700 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.06)] overflow-hidden"
               >
-                {/* Background Watermark Accent */}
-                <span className="absolute -bottom-4 -right-4 text-7xl font-nasal text-black/[0.01] group-hover:text-gold/[0.03] transition-colors uppercase select-none">
+                {/* Background Watermark Accent - Institutional Branding */}
+                <span className="absolute -bottom-4 -right-4 text-8xl font-nasal text-black/[0.01] group-hover:text-gold/[0.04] transition-all duration-700 uppercase select-none italic">
                   ZNR
                 </span>
 
-                {/* Icon Pod */}
-                <div className="w-16 h-16 bg-[#FBFBFB] rounded-2xl flex items-center justify-center mb-10 border border-black/5 group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-sm">
-                  <Icon className="text-gold group-hover:text-white group-hover:scale-110 transition-all duration-500" size={30} />
+                {/* Icon Pod - Premium Shadow */}
+                <div className="w-16 h-16 bg-[#FBFBFB] rounded-2xl flex items-center justify-center mb-10 border border-black/5 group-hover:bg-gold group-hover:text-white transition-all duration-700 shadow-sm">
+                  <Icon className="text-gold group-hover:text-white group-hover:scale-110 transition-all duration-500" size={28} strokeWidth={1.5} />
                 </div>
 
                 <div className="relative z-10">
-                  <h3 className="font-nasal text-2xl mb-4 text-[#1A1A1A] tracking-tighter group-hover:text-gold transition-colors">
+                  <h3 className="font-nasal text-xl mb-4 text-[#1A1A1A] tracking-widest uppercase group-hover:text-gold transition-colors">
                     {service.title}
                   </h3>
 
-                  <p className="text-[#1A1A1A]/50 text-sm leading-relaxed font-inter mb-10">
+                  <p className="text-[#1A1A1A]/50 text-[13px] leading-relaxed font-outfit mb-10">
                     {service.desc}
                   </p>
 
-                  {/* Interactive Footer of the card */}
+                  {/* Interactive Footer - Card Logic */}
                   <div className="flex items-center justify-between border-t border-black/5 pt-6 group-hover:border-gold/20 transition-colors">
-                    <span className="text-[10px] font-nasal text-[#1A1A1A]/30 uppercase tracking-[0.2em] group-hover:text-gold transition-colors">
-                      Service Category 0{index + 1}
+                    <span className="text-[9px] font-audiowide text-gold tracking-[0.3em] uppercase opacity-40 group-hover:opacity-100 transition-opacity">
+                      ZNR-NODE 0{index + 1}
                     </span>
-                    <ArrowUpRight size={14} className="text-black/10 group-hover:text-gold transition-colors" />
+                    <ArrowUpRight size={14} className="text-black/10 group-hover:text-gold transition-all duration-500" />
                   </div>
                 </div>
+
+                {/* Subtle Hover Glow Line */}
+                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gold group-hover:w-full transition-all duration-700" />
               </motion.div>
             );
           })}

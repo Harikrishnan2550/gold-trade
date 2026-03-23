@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { ShieldCheck, BarChart4, Globe2, Briefcase } from "lucide-react";
 
 const strengths = [
-  { title: "Market Experience", icon: BarChart4 },
-  { title: "Secure Trading Network", icon: ShieldCheck },
-  { title: "Transparent Pricing", icon: Globe2 },
+  { title: "Institutional Authority", icon: BarChart4 },
+  { title: "SAIF Zone Clearing", icon: ShieldCheck },
+  { title: "Transparent Spot Rates", icon: Globe2 },
   { title: "Professional Advisory", icon: Briefcase },
 ];
 
@@ -28,24 +28,25 @@ export default function Expertise() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="text-gold font-nasal tracking-[0.4em] text-[10px] uppercase mb-6 block">
-              Strategic Edge
+              The Zanora Mandate
             </span>
             
             <h2 className="font-nasal text-5xl lg:text-6xl text-[#1A1A1A] tracking-tighter leading-tight mb-8">
-              Gold Trading <br />
+              Bullion Trade <br />
               <span className="text-gold-gradient italic">Expertise</span>
             </h2>
 
             <div className="space-y-6">
               <p className="text-[#1A1A1A]/60 text-lg font-inter leading-relaxed">
-                Our team provides a deep synthesis of gold market dynamics, 
-                leveraging proprietary trading strategies and institutional-grade 
-                transaction security.
+                Our team provides a deep synthesis of bullion market dynamics, 
+                leveraging Sharjah's strategic logistical infrastructure and 
+                institutional-grade transaction security.
               </p>
 
               <p className="text-[#1A1A1A]/60 text-lg font-inter leading-relaxed border-l-2 border-gold/20 pl-6 italic">
-                We focus on long-term wealth preservation, ensuring your precious 
-                metal portfolio is resilient against global market volatility.
+                Focusing on institutional wealth preservation, we ensure every 
+                physical asset movement is optimized for speed and compliant 
+                with SAIF Zone regulatory standards.
               </p>
             </div>
           </motion.div>
@@ -59,7 +60,7 @@ export default function Expertise() {
             className="bg-white border border-black/5 p-10 lg:p-14 rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden group"
           >
             <h3 className="font-nasal text-2xl mb-10 text-[#1A1A1A] tracking-tight border-b border-black/5 pb-6">
-              Our <span className="text-gold">Strengths</span>
+              Our <span className="text-gold">Core Assets</span>
             </h3>
 
             <div className="space-y-8">
@@ -87,7 +88,7 @@ export default function Expertise() {
 
             {/* Background Watermark for Depth */}
             <span className="absolute -bottom-6 -right-6 text-8xl font-nasal text-black/[0.02] uppercase select-none pointer-events-none">
-              EXPT
+              ZNR
             </span>
           </motion.div>
 

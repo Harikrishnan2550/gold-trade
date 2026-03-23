@@ -41,7 +41,7 @@ export default function CompanyOverview() {
             </div>
 
             {/* Premium Stat Overlay */}
-            <div className="mt-12 grid grid-cols-2 gap-8 border-t border-black/5 pt-10">
+            <div className="mt-12 grid grid-cols-2 gap-8 border-t border-black/5 pt-10 ml-10 lg:ml-0">
               <div>
                 <p className="text-gold font-nasal text-3xl leading-none">100%</p>
                 <p className="text-[#1A1A1A]/40 text-[10px] uppercase tracking-widest mt-2">Physical Backing</p>
@@ -79,7 +79,7 @@ export default function CompanyOverview() {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 bg-white border border-black/5 p-6 rounded-2xl shadow-xl z-20"
+              className="absolute -bottom-6 left-28 lg:-left-6 bg-white border border-black/5 p-6 rounded-2xl shadow-xl z-20"
             >
               <h4 className="font-nasal text-gold text-sm tracking-widest uppercase">Certified</h4>
               <p className="text-[#1A1A1A]/40 text-[10px] font-inter mt-1">Regulated Operations</p>

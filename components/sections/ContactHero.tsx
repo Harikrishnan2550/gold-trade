@@ -20,7 +20,7 @@ export default function ContactHero() {
         >
           <MessageCircle size={14} className="text-gold" />
           <span className="text-[#1A1A1A]/40 font-nasal text-[10px] uppercase tracking-[0.3em]">
-            Direct Desk: <span className="text-[#1A1A1A] font-bold uppercase">Online</span>
+            Zanora Desk: <span className="text-[#1A1A1A] font-bold uppercase">Online</span>
           </span>
         </motion.div>
 
@@ -31,19 +31,19 @@ export default function ContactHero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="font-nasal text-6xl lg:text-8xl tracking-tighter leading-tight text-[#1A1A1A]"
         >
-          Contact <br />
-          <span className="text-gold-gradient italic">Our Desk</span>
+          Get in <br />
+          <span className="text-gold-gradient italic">Touch</span>
         </motion.h1>
 
-        {/* Subtext with Sharjah/Dubai regional focus */}
+        {/* Subtext with SAIF Zone focus */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-[#1A1A1A]/50 mt-10 max-w-2xl mx-auto text-lg lg:text-2xl font-inter leading-relaxed"
+          className="text-[#1A1A1A]/50 mt-10 max-w-3xl mx-auto text-lg lg:text-2xl font-inter leading-relaxed"
         >
-          Reach our Sharjah-based trading team for professional consultation, 
-          secure physical settlements, and global market expertise.
+          Reach our SAIF Zone trading team for institutional consultation, 
+          secure bullion settlements, and professional global market expertise.
         </motion.p>
 
         {/* Editorial Divider */}

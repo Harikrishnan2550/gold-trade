@@ -72,10 +72,10 @@ export default function Trust() {
                   duration: 0.5,
                   delay: index * 0.1,
                 }}
-                className="group relative p-10 bg-white border border-black/5 rounded-[2.5rem] hover:border-gold/30 transition-all duration-500"
+                className="group relative p-10 bg-black/90 text-white border border-black/5 rounded-[2.5rem] hover:border-gold/30 transition-all duration-500"
               >
                 {/* Audiowide Label for Technical Context */}
-                <span className="font-audiowide text-[8px] text-black/20 uppercase tracking-[0.2em] block mb-10 group-hover:text-gold transition-colors">
+                <span className="font-audiowide text-[8px]  uppercase tracking-[0.2em] block mb-10 group-hover:text-gold transition-colors">
                   {item.label}
                 </span>
 
@@ -83,12 +83,12 @@ export default function Trust() {
                   <Icon className="text-gold group-hover:text-white transition-colors" size={24} />
                 </div>
 
-                <h3 className="font-nasal text-lg mb-4 text-[#1A1A1A] tracking-tight">
+                <h3 className="font-nasal text-lg mb-4  tracking-tight">
                   {item.title}
                 </h3>
 
                 {/* Switched to Inter / Normal Font for the paragraph */}
-                <p className="text-[#1A1A1A]/60 text-sm leading-relaxed font-inter">
+                <p className=" text-sm leading-relaxed font-inter">
                   {item.desc}
                 </p>
 

@@ -6,25 +6,25 @@ import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 const contactDetails = [
   {
-    title: "Regional Headquarters",
-    value: "#1, Al Huwaidi Building, Deira, Dubai, U.A.E.",
-    sub: "Strategic Sharjah-Dubai Corridor",
+    title: "Global Headquarters",
+    value: "SAIF Zone, Sharjah International Airport, U.A.E.",
+    sub: "Free Zone Authority Jurisdiction",
     icon: MapPin,
-    link: "https://maps.google.com",
+    link: "https://www.google.com/maps/search/SAIF+Zone+Sharjah",
   },
   {
-    title: "Trading Desk",
-    value: "+971 422 77664",
-    sub: "Mon - Fri, 9:00 AM - 6:00 PM",
+    title: "Institutional Desk",
+    value: "+971 55 637 0424", // Placeholder: Standard SAIF Zone format
+    sub: "Mon - Fri, 9:00 AM - 6:00 PM GST",
     icon: Phone,
-    link: "tel:+97142277664",
+    link: "tel:+971 55 637 0424",
   },
   {
-    title: "Digital Support",
-    value: "support@goldtrade.com",
-    sub: "24/7 Secure Inquiry Response",
+    title: "Digital Inquiries",
+    value: "info@zanora.ae", // Professional .ae domain for FZC
+    sub: "Secure Institutional Support",
     icon: Mail,
-    link: "mailto:support@goldtrade.com",
+    link: "mailto:info@zanora.ae",
   },
 ];
 

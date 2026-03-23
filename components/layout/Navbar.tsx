@@ -67,7 +67,7 @@ export default function Navbar() {
           </Link>
 
           {/* 2. CENTERED DOCK (Nav Links Only) */}
-          <div className="hidden lg:flex items-center gap-1 bg-black/[0.03] p-1 rounded-full border border-black/5 backdrop-blur-md">
+          <div className="hidden lg:flex items-center  gap-1 bg-black/[0.03] p-1 rounded-full border border-black/5 backdrop-blur-md">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -95,7 +95,7 @@ export default function Navbar() {
               className="group/btn flex items-center gap-3 bg-[#1A1A1A] text-white pl-8 pr-3 py-3 rounded-full font-audiowide text-[11px] uppercase tracking-[0.2em] hover:bg-gold transition-all duration-500 shadow-xl shadow-black/10"
             >
               Contact Us
-              <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-gold transition-colors">
+              <div className="w-8 h-8  bg-white/10 rounded-full flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-gold transition-colors">
                 <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
               </div>
             </Link>
@@ -137,7 +137,7 @@ export default function Navbar() {
                   <Link 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
-                    className={`text-5xl font-nasal tracking-tighter ${pathname === link.href ? "text-gold" : "text-[#1A1A1A]"}`}
+                    className={`text-5xl font-audiowide tracking-tighter ${pathname === link.href ? "text-gold" : "text-[#1A1A1A]"}`}
                   >
                     {link.name}
                   </Link>
@@ -153,7 +153,7 @@ export default function Navbar() {
                 <Link 
                   href="/contact" 
                   onClick={() => setIsOpen(false)}
-                  className="bg-gold text-white p-8 rounded-[2.5rem] flex items-center justify-between font-nasal text-2xl uppercase tracking-tighter"
+                  className="bg-gold text-white p-8 font-audiowide rounded-[2.5rem] flex items-center justify-between  text-2xl uppercase tracking-tighter"
                 >
                   Get In Touch
                   <ArrowUpRight size={32} />

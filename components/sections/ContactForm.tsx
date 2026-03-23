@@ -14,9 +14,20 @@ export default function ContactForm() {
   });
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target;
+
+    // Logic to limit phone number to 10 digits and only numeric input
+    if (name === "phone") {
+      const numericValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+      if (numericValue.length <= 10) {
+        setForm((prev) => ({ ...prev, [name]: numericValue }));
+      }
+      return; // Exit early to prevent standard state update
+    }
+
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   }
 
@@ -61,6 +72,7 @@ export default function ContactForm() {
                   name="name"
                   type="text"
                   placeholder="e.g. Abdullah Ahmed"
+                  value={form.name}
                   onChange={handleChange}
                   className={inputStyles}
                   required
@@ -73,6 +85,7 @@ export default function ContactForm() {
                   name="email"
                   type="email"
                   placeholder="name@company.com"
+                  value={form.email}
                   onChange={handleChange}
                   className={inputStyles}
                   required
@@ -85,9 +98,11 @@ export default function ContactForm() {
               <input
                 name="phone"
                 type="tel"
-                placeholder="+971 -- --- ----"
+                placeholder="10-digit mobile number"
+                value={form.phone}
                 onChange={handleChange}
                 className={inputStyles}
+                required
               />
             </div>
 
@@ -97,6 +112,7 @@ export default function ContactForm() {
                 name="message"
                 placeholder="How can our trading desk assist you today?"
                 rows={6}
+                value={form.message}
                 onChange={handleChange}
                 className={`${inputStyles} resize-none`}
                 required

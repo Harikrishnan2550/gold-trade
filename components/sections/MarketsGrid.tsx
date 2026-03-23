@@ -6,34 +6,34 @@ import { motion } from "framer-motion";
 
 const markets = [
   {
-    title: "Dubai Gold Market",
-    desc: "Unrivaled access to the Sharjah and Dubai gold trading corridors.",
+    title: "Regional Hub",
+    desc: "Unrivaled access to the Sharjah and Dubai gold trading corridors under SAIF Zone jurisdiction.",
     icon: Landmark,
-    stat: "Local Hub"
+    stat: "Local Node"
   },
   {
-    title: "International Markets",
-    desc: "Seamless connectivity to London and New York precious metal exchanges.",
+    title: "Global Exchanges",
+    desc: "Seamless connectivity to London, New York, and Hong Kong precious metal networks.",
     icon: Globe,
-    stat: "Global Reach"
+    stat: "International"
   },
   {
-    title: "Institutional Trading",
-    desc: "High-volume execution desks for private banks and asset managers.",
+    title: "Institutional Desk",
+    desc: "High-volume physical execution for private wealth offices and global asset managers.",
     icon: Building2,
-    stat: "Direct Access"
+    stat: "FZC Access"
   },
   {
-    title: "Market Analysis",
-    desc: "Strategic technical and fundamental insights for gold investors.",
+    title: "Live Intelligence",
+    desc: "Strategic technical insights and fundamental data for professional bullion investors.",
     icon: TrendingUp,
-    stat: "Live Data"
+    stat: "Sync Data"
   },
 ];
 
 export default function MarketsGrid() {
   return (
-    <section className="py-24 bg-[#FBFBFB]">
+    <section className="py-24 bg-[#FBFBFB] relative overflow-hidden">
       <Container>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {markets.map((market, index) => {
@@ -74,7 +74,7 @@ export default function MarketsGrid() {
 
                 {/* Micro-link */}
                 <div className="flex items-center gap-2 text-[#1A1A1A]/20 group-hover:text-gold transition-all duration-500">
-                  <span className="text-[10px] font-nasal uppercase tracking-[0.2em]">Explore</span>
+                  <span className="text-[10px] font-nasal uppercase tracking-[0.2em]">Explore Node</span>
                   <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </motion.div>

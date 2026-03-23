@@ -5,6 +5,8 @@ import Services from "@/components/sections/Services";
 import WhyChoose from "@/components/sections/WhyChoose";
 import Process from "@/components/sections/Process";
 import CTA from "@/components/sections/CTA";
+import HeroMarketData from "@/components/sections/HeroMarketData";
+
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Trust />
 
       <AboutPreview />
+
+      <HeroMarketData/>
 
       <Services />
 

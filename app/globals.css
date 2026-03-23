@@ -1,217 +1,149 @@
-/* GOOGLE FONTS */
+/* 1. GOOGLE FONTS - MUST BE AT TOP */
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Outfit:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
 
 @import "tailwindcss";
 
-/* LOCAL FONT */
-
+/* 2. LOCAL FONT */
 @font-face {
   font-family: 'Nasalization';
   src: url('/fonts/nasalization.woff2') format('woff2');
   font-display: swap;
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* DESIGN TOKENS */
-
+/* 3. DESIGN TOKENS */
 @theme {
+  --color-gold: #D4AF37;
+  --color-gold-light: #F9E498;
+  --color-gold-dark: #AA8A22;
+  --color-premium: #050505;
 
---color-gold:#D4AF37;
---color-gold-light:#F9E498;
---color-gold-dark:#AA8A22;
---color-premium:#050505;
+  --font-nasal: "Nasalization", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-audiowide: "Audiowide", sans-serif;
 
---font-nasal:"Nasalization", sans-serif;
---font-outfit:"Outfit", sans-serif;
---font-poppins:"Poppins", sans-serif;
---font-audiowide:"Audiowide", sans-serif;
-
+  /* Custom Animations */
+  @keyframes shimmer {
+    from { transform: translateX(-100%) skewX(-20deg); }
+    to { transform: translateX(200%) skewX(-20deg); }
+  }
 }
 
-/* BASE */
-
-body{
-
-background:#050505;
-
-color:white;
-
-font-family:var(--font-poppins);
-
--webkit-font-smoothing:antialiased;
-
--moz-osx-font-smoothing:grayscale;
-
+/* 4. BASE STYLES */
+body {
+  background: #050505;
+  color: white;
+  font-family: var(--font-poppins);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* HEADINGS USE AUDIOWIDE */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-
-font-family:var(--font-audiowide);
-
-letter-spacing:.05em;
-
+/* Typography Consistency */
+h1, h2, h3, h4, h5, h6, nav, button, footer h2, footer h3 {
+  font-family: var(--font-audiowide);
+  letter-spacing: 0.05em;
 }
 
-/* NAV + BUTTON + FOOTER TITLES */
+/* 5. UTILITIES */
 
-nav,
-button,
-footer h2,
-footer h3{
+/* Core Typography */
+@utility font-nasal { font-family: var(--font-nasal); }
+@utility font-heading { font-family: var(--font-audiowide); }
+@utility font-body { font-family: var(--font-poppins); }
 
-font-family:var(--font-audiowide);
+@utility tracking-tighter { letter-spacing: -0.06em; }
+@utility leading-tight { line-height: 0.95; }
 
+/* Premium Design Elements */
+@utility glass-card {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 24px;
 }
 
-/* FONT UTILITIES */
-
-@utility font-heading{
-
-font-family:var(--font-audiowide);
-
+@utility gold-corner-badge {
+  background: linear-gradient(135deg, transparent 50%, #AA8A22 50%, #F9E498 75%, #AA8A22 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
 }
 
-@utility font-body{
-
-font-family:var(--font-poppins);
-
+@utility text-gold-gradient {
+  background: linear-gradient(to right, #AA8A22 0%, #F9E498 50%, #AA8A22 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
 }
 
-@utility font-audiowide{
-
-font-family:var(--font-audiowide);
-
+/* 6. BUTTONS & LABELS */
+@utility btn-primary {
+  font-family: var(--font-audiowide);
+  background: linear-gradient(135deg, #D4AF37, #AA8A22);
+  color: black;
+  padding: 14px 32px;
+  border-radius: 14px;
+  transition: 0.4s;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@utility font-outfit{
-
-font-family:var(--font-outfit);
-
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.4);
 }
 
-/* COLORS */
-
-@utility text-gold{
-
-color:var(--color-gold);
-
+@utility text-tech-label {
+  font-family: var(--font-audiowide);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 10px;
+  color: #D4AF37;
 }
 
-@utility bg-premium{
-
-background:var(--color-premium);
-
+/* 7. ANIMATIONS */
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
 }
 
-@utility bg-card{
-
-background:#0A0A0A;
-
+@keyframes shine {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to { transform: translateX(200%) skewX(-15deg); }
 }
 
-@utility rounded-premium{
-
-border-radius:20px;
-
+.shine-effect {
+  position: relative;
+  overflow: hidden;
 }
 
-/* BUTTON */
-
-@utility btn-primary{
-
-font-family:var(--font-audiowide);
-
-background:linear-gradient(135deg,#D4AF37,#AA8A22);
-
-color:black;
-
-padding:14px 32px;
-
-border-radius:14px;
-
-transition:.4s;
-
-letter-spacing:.08em;
-
+.shine-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(212, 175, 55, 0.2), /* Slightly increased opacity for better visibility on dark themes */
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
 }
 
-/* hover must NOT be inside @utility */
-
-.btn-primary:hover{
-
-transform:translateY(-3px);
-
-box-shadow:0 20px 40px -10px rgba(212,175,55,0.5);
-
-}
-
-/* TECH LABEL */
-
-@utility text-tech-label{
-
-font-family:var(--font-audiowide);
-
-text-transform:uppercase;
-
-letter-spacing:.2em;
-
-font-size:11px;
-
-color:#D4AF37;
-
-}
-
-/* TYPOGRAPHY */
-
-@utility tracking-tighter{
-
-letter-spacing:-0.06em;
-
-}
-
-@utility leading-tight{
-
-line-height:.95;
-
-}
-
-/* ANIMATIONS */
-
-@keyframes shimmer{
-
-from{
-transform:translateX(-100%) skewX(-20deg);
-}
-
-to{
-transform:translateX(200%) skewX(-20deg);
-}
-
-}
-
-.animate-shimmer{
-
-animation:shimmer 2.5s infinite;
-
-}
-
-@utility text-gold-gradient{
-
-background:linear-gradient(
-to right,
-#AA8A22 0%,
-#F9E498 50%,
-#AA8A22 100%
-);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
+/* FIX: Split animation and opacity into separate lines */
+.shine-effect:hover::after {
+  animation: shine 1s ease-in-out;
+  opacity: 1;
 }
