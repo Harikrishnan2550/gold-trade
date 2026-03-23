@@ -11,13 +11,15 @@ const slides = [
     id: 1,
     title: <>PIONEERING <br /><span className="text-gold-light italic">THE GOLD STANDARD</span></>,
     content: "Seamless physical gold execution and wealth preservation for global private offices.",
-    image: "/gold-banner2.png", //
+    image: "/gold-banner4.png", //
+    isBanner4: true // Flag to target only this specific image
   },
   {
     id: 2,
     title: <>ADVANCED <br /><span className="text-gold-light italic">DIGITAL TRADING</span></>,
     content: "Institutional-grade liquidity and real-time market analytics at your fingertips.",
     image: "/gold-banner3.png", //
+    isBanner4: false
   }
 ];
 
@@ -27,7 +29,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 6000); // Slide changes every 6 seconds
+    }, 6000); 
     return () => clearInterval(timer);
   }, []);
 
@@ -43,16 +45,18 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 w-full h-full"
         >
-          {/* BACKGROUND IMAGE - BRIGHTER VERSION */}
+          {/* BACKGROUND IMAGE - BRIGHTER VERSION with conditional SHADE filter */}
           <Image 
             src={slides[index].image} 
             alt="Institutional Gold" 
             fill 
-            className="object-cover object-center brightness-110 contrast-[1.05]" 
+            // Target banner4 with a "black shade" filter, keep others at full brightness
+            className={`object-cover object-center contrast-[1.05]
+                      ${slides[index].isBanner4 ? 'brightness-[0.85] backdrop-brightness-[0.8]' : 'brightness-110'}`} 
             priority
           />
           
-          {/* Subtle radial vignette to pull focus to the left content */}
+          {/* Base radial vignette for left-side focus */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,_transparent_20%,_rgba(0,0,0,0.4)_100%)]" />
         </motion.div>
       </AnimatePresence>
@@ -86,6 +90,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             className="flex flex-col sm:flex-row items-center gap-10 lg:gap-12"
           >
+            {/* Kept original button bg-orange-300/70 as requested */}
             <Link 
               href="/contact" 
               className="w-full sm:w-auto bg-orange-300/70 text-black px-12 py-5 rounded-2xl font-nasal text-[12px] tracking-widest uppercase shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white"
@@ -104,8 +109,6 @@ export default function Hero() {
 
         </div>
       </Container>
-
-     
     </section>
   );
 }

@@ -61,7 +61,7 @@ export default function Navbar() {
             >
               <span className="text-gold font-nasal text-xl">G</span>
             </motion.div>
-            <div className="font-nasal text-xl lg:text-2xl tracking-tighter text-[#1A1A1A]">
+            <div className="font-nasal text-xl lg:text-2xl tracking-tighter text-white">
               GOLD <span className="text-gold-gradient italic">TRADE</span>
             </div>
           </Link>
