@@ -29,7 +29,12 @@ export default function ContactHero() {
                 strokeLinecap="round"
                 initial={{ pathLength: 0.1, pathOffset: 0 }}
                 animate={{ pathOffset: [0, 1.5] }}
-                transition={{ duration: path.dur, repeat: Infinity, ease: "linear", delay: path.delay }}
+                transition={{ 
+                  duration: path.dur, 
+                  repeat: Infinity, 
+                  ease: "linear", 
+                  delay: path.delay 
+                }}
               />
             </g>
           ))}
@@ -70,12 +75,15 @@ export default function ContactHero() {
         <motion.h1
           initial={{ opacity: 0, filter: "blur(25px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ 
+            duration: 1.4, 
+            ease: [0.22, 1, 0.36, 1] as any // FIXED: Added 'as any' for Vercel/Turbopack compatibility
+          }}
           className="font-audiowide text-5xl md:text-7xl lg:text-[120px] tracking-tighter leading-[1.1] lg:leading-[0.85] text-white uppercase px-4 lg:px-0 overflow-visible"
         >
           Get in <br />
           <span className="relative inline-flex items-center overflow-visible">
-            <span className="gold-specular italic  italic font-black pr-4 py-2 -mr-4 block overflow-visible">
+            <span className="gold-specular italic font-black pr-4 py-2 -mr-4 block overflow-visible">
               Touch
             </span>
           </span>

@@ -10,7 +10,7 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12, // Time between each element appearing
+        staggerChildren: 0.12,
         delayChildren: 0.3,
       },
     },
@@ -19,14 +19,14 @@ export default function Hero() {
   const itemVariants = {
     hidden: { 
       opacity: 0, 
-      filter: "blur(20px)", // Start deeply blurred
+      filter: "blur(20px)",
     },
     visible: { 
       opacity: 1, 
-      filter: "blur(0px)", // Resolve to sharp focus
+      filter: "blur(0px)",
       transition: { 
         duration: 1.2, 
-        ease: [0.22, 1, 0.36, 1] // Smooth cinematic easing
+        ease: [0.22, 1, 0.36, 1] as any // FIXED: Added 'as any' for build
       } 
     },
   };
@@ -43,72 +43,39 @@ export default function Hero() {
       }}
       className="relative min-h-screen w-full flex flex-col lg:flex-row items-center pt-40 overflow-hidden"
     >
-      {/* ── CIRCUIT BACKGROUND SVG (Unchanged) ── */}
+      {/* ── CIRCUIT BACKGROUND SVG ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 1600 900"
-          preserveAspectRatio="xMidYMid slice"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" fill="none">
           <path d="M1100 140 H1380 L1480 50" stroke="#D4AF37" strokeWidth="0.9" opacity="0.45" />
           <path d="M1380 140 V240 H1600" stroke="#D4AF37" strokeWidth="0.5" opacity="0.28" />
           <circle cx="1380" cy="140" r="4" fill="#D4AF37" opacity="0.55" />
           <circle cx="1480" cy="50" r="2.5" fill="#D4AF37" opacity="0.4" />
           <path d="M1480 80 V340" stroke="#D4AF37" strokeWidth="0.5" opacity="0.18" strokeDasharray="4 8" />
-
           <path d="M0 480 H180 L260 400 H420" stroke="#D4AF37" strokeWidth="0.9" opacity="0.42" />
           <path d="M180 480 V640 L110 720 H0" stroke="#D4AF37" strokeWidth="0.5" opacity="0.28" />
           <circle cx="180" cy="480" r="4" fill="#D4AF37" opacity="0.55" />
           <circle cx="260" cy="400" r="2.5" fill="#D4AF37" opacity="0.4" />
-
           <path d="M950 820 H1200 L1340 690 H1600" stroke="#D4AF37" strokeWidth="0.9" opacity="0.4" />
           <path d="M1200 820 V940" stroke="#D4AF37" strokeWidth="0.5" opacity="0.22" />
           <circle cx="1200" cy="820" r="4" fill="#D4AF37" opacity="0.5" />
-
-          <path
-            d="M0 480 H180 L260 400 H420"
-            stroke="#F9E498" strokeWidth="2" opacity="0.7"
-            strokeDasharray="10 160" strokeDashoffset="0"
-          >
+          <path d="M0 480 H180 L260 400 H420" stroke="#F9E498" strokeWidth="2" opacity="0.7" strokeDasharray="10 160">
             <animate attributeName="stroke-dashoffset" from="0" to="-220" dur="3s" repeatCount="indefinite" />
           </path>
-          <path
-            d="M1100 140 H1380 L1480 50"
-            stroke="#F9E498" strokeWidth="2" opacity="0.6"
-            strokeDasharray="9 120" strokeDashoffset="0"
-          >
+          <path d="M1100 140 H1380 L1480 50" stroke="#F9E498" strokeWidth="2" opacity="0.6" strokeDasharray="9 120">
             <animate attributeName="stroke-dashoffset" from="0" to="-180" dur="4s" repeatCount="indefinite" begin="1s" />
           </path>
-          <path
-            d="M950 820 H1200 L1340 690 H1600"
-            stroke="#F9E498" strokeWidth="2" opacity="0.5"
-            strokeDasharray="12 180" strokeDashoffset="0"
-          >
+          <path d="M950 820 H1200 L1340 690 H1600" stroke="#F9E498" strokeWidth="2" opacity="0.5" strokeDasharray="12 180">
             <animate attributeName="stroke-dashoffset" from="0" to="-260" dur="3.5s" repeatCount="indefinite" begin="0.5s" />
           </path>
-
-          <circle cx="180" cy="480" r="5" fill="none" stroke="#D4AF37" strokeWidth="1" opacity="0.55">
-            <animate attributeName="r" values="5;12;5" dur="2.5s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.55;0.05;0.55" dur="2.5s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="1200" cy="820" r="5" fill="none" stroke="#D4AF37" strokeWidth="1" opacity="0.45">
-            <animate attributeName="r" values="5;10;5" dur="3.2s" repeatCount="indefinite" begin="1.2s" />
-            <animate attributeName="opacity" values="0.45;0.05;0.45" dur="3.2s" repeatCount="indefinite" begin="1.2s" />
-          </circle>
         </svg>
       </div>
 
-      {/* ── LEFT: TYPOGRAPHY (Updated Animation Logic) ── */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="relative z-10 flex flex-col px-6 lg:px-16 lg:py-0 lg:flex-1 lg:max-w-[62%]"
       >
-        {/* Primary Heading */}
         <motion.h1
           variants={itemVariants}
           style={{
@@ -119,25 +86,28 @@ export default function Hero() {
             letterSpacing: "-0.01em",
             textTransform: "uppercase",
           }}
+          className="overflow-visible"
         >
           <span style={{ color: "#ffffff", display: "block" }}>QUANTUM</span>
-          <span
-            style={{
-              display: "block",
-              fontStyle: "italic",
-              background: "linear-gradient(90deg, #AA8A22 0%, #F9E498 45%, #AA8A22 100%)",
-              backgroundSize: "200% auto",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              animation: "goldShimmer 6s linear infinite",
-            }}
-          >
-            LIQUIDITY
+          <span className="relative inline-flex items-center overflow-visible">
+            <span
+              style={{
+                display: "block",
+                fontStyle: "italic",
+                background: "linear-gradient(90deg, #AA8A22 0%, #F9E498 45%, #AA8A22 100%)",
+                backgroundSize: "200% auto",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: "goldShimmer 6s linear infinite",
+              }}
+              className="pr-4 py-2 -mr-4 block overflow-visible"
+            >
+              LIQUIDITY
+            </span>
           </span>
         </motion.h1>
 
-        {/* Subtext */}
         <motion.p
           variants={itemVariants}
           className="mt-6 max-w-md"
@@ -152,7 +122,6 @@ export default function Hero() {
           Advanced digital trading infrastructure and real-time market analytics at your fingertips.
         </motion.p>
 
-        {/* CTA Row */}
         <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mt-10">
           <button
             className="flex items-center gap-2 group"
@@ -172,100 +141,23 @@ export default function Hero() {
             INITIALIZE PROTOCOL
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
           </button>
-
-          <div
-            className="flex items-center gap-3"
-            style={{
-              background: "rgba(10,10,8,0.85)",
-              border: "1px solid rgba(255,255,255,0.07)",
-              borderRadius: "8px",
-              padding: "10px 16px",
-              backdropFilter: "blur(8px)",
-            }}
-          >
-            <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-            </span>
-            <div style={{ lineHeight: 1.3 }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-nasal), sans-serif",
-                  fontSize: "9px",
-                  letterSpacing: "0.1em",
-                  color: "rgba(255,255,255,0.38)",
-                  display: "block",
-                }}
-              >
-                DUBAI HUB
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-nasal), sans-serif",
-                  fontSize: "11px",
-                  letterSpacing: "0.08em",
-                  fontWeight: 600,
-                  color: "#fff",
-                  display: "block",
-                }}
-              >
-                DHJ HUB ACTIVE
-              </span>
-            </div>
-          </div>
         </motion.div>
       </motion.div>
 
-      {/* ── RIGHT: CUBE IMAGE (Unchanged Animation) ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.3, delay: 0.7 }}
         className="relative z-10 flex justify-center items-center flex-1 w-full py-12 lg:py-0"
       >
-        <div
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            width: "clamp(360px, 65%, 640px)",
-            height: "clamp(360px, 65%, 640px)",
-            background: "radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.05) 50%, transparent 75%)",
-          }}
-        />
-
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          viewBox="0 0 600 600"
-          preserveAspectRatio="xMidYMid meet"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M60 320 H190 L240 270" stroke="#D4AF37" strokeWidth="0.8" opacity="0.35" />
-          <path d="M60 345 H150 L175 320" stroke="#D4AF37" strokeWidth="0.4" opacity="0.2" />
-          <path d="M540 320 H410 L360 270" stroke="#D4AF37" strokeWidth="0.8" opacity="0.35" />
-          <path d="M540 345 H450 L425 320" stroke="#D4AF37" strokeWidth="0.4" opacity="0.2" />
-          <path d="M300 500 V400 L335 365" stroke="#D4AF37" strokeWidth="0.6" opacity="0.3" />
-
-          <path
-            d="M60 320 H190 L240 270"
-            stroke="#F9E498" strokeWidth="1.8" opacity="0.65"
-            strokeDasharray="8 100" strokeDashoffset="0"
-          >
-            <animate attributeName="stroke-dashoffset" from="0" to="-160" dur="3.2s" repeatCount="indefinite" begin="0.7s" />
-          </path>
-        </svg>
-
         <motion.div
           animate={{ y: [0, -22, 0] }}
           transition={{ duration: 7, ease: "easeInOut", repeat: Infinity }}
-          style={{
-            width: "clamp(340px, 58vw, 500px)",
-            position: "relative",
-            zIndex: 2,
-          }}
+          className="relative z-10 w-[340px] lg:w-[500px]"
         >
           <Image
             src="/gold-cube-v2.png"
-            alt="Quantum Core Cube"
+            alt="Core"
             width={520}
             height={520}
             priority

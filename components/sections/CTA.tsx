@@ -79,7 +79,8 @@ export default function CTA() {
         <motion.div
           initial={{ opacity: 0, scale: 0.98, filter: "blur(15px)" }}
           whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1 }}
+          // FIXED: Cast ease to 'any' to satisfy Vercel/TypeScript transition requirements
+          transition={{ duration: 1, ease: "easeOut" as any }}
           viewport={{ once: true }}
           className="relative bg-[#080808]/90 backdrop-blur-xl border border-white/5 rounded-[2.5rem] lg:rounded-[4rem] p-8 lg:p-24 text-center overflow-hidden group shadow-2xl"
         >
@@ -98,7 +99,7 @@ export default function CTA() {
               </span>
             </motion.div>
 
-            {/* FIXED HEADING TO PREVENT CLIPPING */}
+            {/* FIXED HEADING TO PREVENT SLANTED CLIPPING */}
             <h2 className="font-audiowide text-4xl md:text-6xl lg:text-8xl leading-[1.1] lg:leading-[0.85] text-white tracking-tighter mb-8 lg:mb-10 uppercase overflow-visible">
               Execute Bullion <br />
               <span className="relative inline-flex items-center overflow-visible">
@@ -121,7 +122,7 @@ export default function CTA() {
                   className="w-full bg-white text-black px-10 lg:px-14 py-4 lg:py-5 rounded-md font-audiowide text-[10px] lg:text-xs tracking-[0.2em] flex items-center justify-center gap-3 shadow-2xl transition-all relative overflow-hidden group/btn"
                 >
                   <MessageSquare size={16} className="relative z-10" />
-                  <span className="relative z-10">GET IN TOUCH</span>
+                  <span className="relative z-10 uppercase">GET IN TOUCH</span>
                   <div className="absolute inset-0 bg-gold translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
                 </motion.button>
               </Link>
@@ -132,7 +133,7 @@ export default function CTA() {
                 className="w-full sm:w-auto bg-white/5 backdrop-blur-md border border-white/10 text-white px-10 lg:px-14 py-4 lg:py-5 rounded-md font-audiowide text-[10px] lg:text-xs tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-white hover:text-black transition-all"
               >
                 <Phone size={16} />
-                CALL SPECIALIST
+                <span className="uppercase">Call Specialist</span>
               </motion.button>
             </div>
           </div>
