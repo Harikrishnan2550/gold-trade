@@ -16,20 +16,21 @@ export default function ServicesHero() {
 
   // Animation Variants for the "Lens Resolve"
   const revealVariants = {
-    hidden: { 
-      opacity: 0, 
-      filter: "blur(20px)",
+  hidden: { 
+    opacity: 0, 
+    filter: "blur(20px)" 
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1.2,
+      delay: i * 0.15,
+      // CHANGE: Change the array [0.22, 1, 0.36, 1] to this string
+      ease: "cubic-bezier(0.22, 1, 0.36, 1)" 
     },
-    visible: (i: number) => ({
-      opacity: 1, 
-      filter: "blur(0px)",
-      transition: { 
-        duration: 1.2, 
-        delay: i * 0.2,
-        ease: [0.22, 1, 0.36, 1] 
-      }
-    }),
-  };
+  }),
+};
 
   return (
     <section className="relative pt-40 lg:pt-64 pb-20 lg:pb-32 overflow-hidden bg-[#050505] bg-floor-industrial border-b border-white/5">
