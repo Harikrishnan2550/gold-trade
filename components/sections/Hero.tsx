@@ -75,7 +75,7 @@ const itemVariants: Variants = {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-col px-6 lg:px-16 lg:py-0 lg:flex-1 lg:max-w-[62%]"
+        className="relative z-10 flex flex-col px-6 lg:px-16 lg:py-0 lg:flex-1 lg:max-w-[62%] ml-10 lg:ml-28"
       >
         <motion.h1
           variants={itemVariants}
