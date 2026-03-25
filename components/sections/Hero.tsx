@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
@@ -16,20 +16,20 @@ export default function Hero() {
     },
   };
 
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      filter: "blur(20px)",
-    },
-    visible: { 
-      opacity: 1, 
-      filter: "blur(0px)",
-      transition: { 
-        duration: 1.2, 
-        ease: [0.22, 1, 0.36, 1] as any // FIXED: Added 'as any' for build
-      } 
-    },
-  };
+  const itemVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    filter: "blur(20px)",
+  },
+  visible: { 
+    opacity: 1, 
+    filter: "blur(0px)",
+    transition: { 
+      duration: 1.2, 
+      ease: [0.22, 1, 0.36, 1] 
+    } 
+  },
+};
 
   return (
     <section
