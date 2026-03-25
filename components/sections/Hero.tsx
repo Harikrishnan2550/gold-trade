@@ -123,9 +123,9 @@ const itemVariants: Variants = {
           Advanced digital trading infrastructure and real-time market analytics at your fingertips.
         </motion.p>
 
-        <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mt-10">
+        <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mt-10 ml-7 lg:ml-0">
           <button
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2 group "
             style={{
               fontFamily: "var(--font-nasal), sans-serif",
               fontSize: "12px",
