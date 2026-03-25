@@ -1,6 +1,6 @@
 "use client";
 
-import { motion,Variants  } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Zap, Activity, Cpu } from "lucide-react";
 import Container from "../ui/Container";
@@ -15,22 +15,23 @@ export default function ServicesHero() {
   ];
 
   // Animation Variants for the "Lens Resolve"
-  const revealVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      filter: "blur(20px)",
+  const revealVariants = {
+  hidden: {
+    opacity: 0,
+    filter: "blur(20px)",
+  },
+
+  visible: (i: number) => ({
+    opacity: 1,
+    filter: "blur(0px)",
+
+    transition: {
+      duration: 1.2,
+      delay: i * 0.15,
+      ease: [0.22, 1, 0.36, 1],
     },
-    visible: (i: number) => ({
-      opacity: 1,
-      filter: "blur(0px)",
-      transition: {
-        duration: 1.2,
-        delay: i * 0.15,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    }),
-    
-  };
+  }),
+};
 
   return (
     <section className="relative pt-40 lg:pt-64 pb-20 lg:pb-32 overflow-hidden bg-[#050505] bg-floor-industrial border-b border-white/5">
