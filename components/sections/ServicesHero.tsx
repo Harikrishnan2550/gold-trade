@@ -15,22 +15,21 @@ export default function ServicesHero() {
   ];
 
   // Animation Variants for the "Lens Resolve"
-  const revealVariants = {
+const revealVariants = {
   hidden: {
     opacity: 0,
     filter: "blur(20px)",
   },
 
-  visible: (i: number) => ({
+  visible: {
     opacity: 1,
     filter: "blur(0px)",
 
     transition: {
       duration: 1.2,
-      delay: i * 0.15,
-      ease: [0.22, 1, 0.36, 1],
+      ease: "easeOut" as const,
     },
-  }),
+  },
 };
 
   return (
@@ -121,7 +120,7 @@ export default function ServicesHero() {
 
         {/* ── 3. TERMINAL HEADER BADGE ── */}
         <motion.div
-          custom={0}
+          
           variants={revealVariants}
           initial="hidden"
           animate="visible"
@@ -135,7 +134,7 @@ export default function ServicesHero() {
 
         {/* ── 4. RESPONSIVE LENS FOCUS HEADING ── */}
         <motion.h1
-          custom={1}
+          
           variants={revealVariants}
           initial="hidden"
           animate="visible"
@@ -147,7 +146,7 @@ export default function ServicesHero() {
 
         {/* ── 5. DESCRIPTION ── */}
         <motion.p
-          custom={2}
+          
           variants={revealVariants}
           initial="hidden"
           animate="visible"
@@ -160,7 +159,7 @@ export default function ServicesHero() {
 
         {/* ── 6. ROBOTIC DIVIDER & METADATA ── */}
         <motion.div
-          custom={3}
+          
           variants={revealVariants}
           initial="hidden"
           animate="visible"
