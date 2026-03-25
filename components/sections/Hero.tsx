@@ -27,7 +27,7 @@ const itemVariants: Variants = {
     transition: { 
       duration: 1.2, 
       // The "as any" is the critical fix for the Vercel Build worker
-      ease: [0.22, 1, 0.36, 1] as any
+      ease: "cubic-bezier(0.22, 1, 0.36, 1)" as any
     } 
   },
 };
