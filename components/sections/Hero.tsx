@@ -1,114 +1,285 @@
 "use client";
-
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import Container from "../ui/Container";
-import { useState, useEffect } from "react";
-
-const slides = [
-  {
-    id: 1,
-    title: <>PIONEERING <br /><span className="text-gold-light italic">THE GOLD STANDARD</span></>,
-    content: "Seamless physical gold execution and wealth preservation for global private offices.",
-    image: "/gold-banner4.png", //
-    isBanner4: true // Flag to target only this specific image
-  },
-  {
-    id: 2,
-    title: <>ADVANCED <br /><span className="text-gold-light italic">DIGITAL TRADING</span></>,
-    content: "Institutional-grade liquidity and real-time market analytics at your fingertips.",
-    image: "/gold-banner3.png", //
-    isBanner4: false
-  }
-];
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const [index, setIndex] = useState(0);
+  // Animation Variants for the "Lens Blur Resolve" effect
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12, // Time between each element appearing
+        delayChildren: 0.3,
+      },
+    },
+  };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 6000); 
-    return () => clearInterval(timer);
-  }, []);
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      filter: "blur(20px)", // Start deeply blurred
+    },
+    visible: { 
+      opacity: 1, 
+      filter: "blur(0px)", // Resolve to sharp focus
+      transition: { 
+        duration: 1.2, 
+        ease: [0.22, 1, 0.36, 1] // Smooth cinematic easing
+      } 
+    },
+  };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
-      
-      <AnimatePresence mode="wait">
-        <motion.div 
-          key={slides[index].id}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 w-full h-full"
+    <section
+      style={{
+        background: "#060605",
+        backgroundImage: `
+          linear-gradient(rgba(255,255,255,0.016) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.016) 1px, transparent 1px)
+        `,
+        backgroundSize: "28px 28px",
+      }}
+      className="relative min-h-screen w-full flex flex-col lg:flex-row items-center pt-40 overflow-hidden"
+    >
+      {/* ── CIRCUIT BACKGROUND SVG (Unchanged) ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 1600 900"
+          preserveAspectRatio="xMidYMid slice"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {/* BACKGROUND IMAGE - BRIGHTER VERSION with conditional SHADE filter */}
-          <Image 
-            src={slides[index].image} 
-            alt="Institutional Gold" 
-            fill 
-            // Target banner4 with a "black shade" filter, keep others at full brightness
-            className={`object-cover object-center contrast-[1.05]
-                      ${slides[index].isBanner4 ? 'brightness-[0.85] backdrop-brightness-[0.8]' : 'brightness-110'}`} 
-            priority
-          />
-          
-          {/* Base radial vignette for left-side focus */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,_transparent_20%,_rgba(0,0,0,0.4)_100%)]" />
-        </motion.div>
-      </AnimatePresence>
+          <path d="M1100 140 H1380 L1480 50" stroke="#D4AF37" strokeWidth="0.9" opacity="0.45" />
+          <path d="M1380 140 V240 H1600" stroke="#D4AF37" strokeWidth="0.5" opacity="0.28" />
+          <circle cx="1380" cy="140" r="4" fill="#D4AF37" opacity="0.55" />
+          <circle cx="1480" cy="50" r="2.5" fill="#D4AF37" opacity="0.4" />
+          <path d="M1480 80 V340" stroke="#D4AF37" strokeWidth="0.5" opacity="0.18" strokeDasharray="4 8" />
 
-      <Container className="relative z-10 w-full">
-        <div className="max-w-[700px] flex flex-col items-start text-left">
-          
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slides[index].id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              {/* Futuristic Main Title */}
-              <h1 className="font-nasal text-5xl md:text-6xl lg:text-8xl leading-[0.95] text-white mb-8 tracking-tighter uppercase font-bold drop-shadow-2xl mt-36">
-                {slides[index].title}
-              </h1>
+          <path d="M0 480 H180 L260 400 H420" stroke="#D4AF37" strokeWidth="0.9" opacity="0.42" />
+          <path d="M180 480 V640 L110 720 H0" stroke="#D4AF37" strokeWidth="0.5" opacity="0.28" />
+          <circle cx="180" cy="480" r="4" fill="#D4AF37" opacity="0.55" />
+          <circle cx="260" cy="400" r="2.5" fill="#D4AF37" opacity="0.4" />
 
-              {/* Small Content Description */}
-              <p className="text-white/90 text-base lg:text-xl max-w-lg mb-12 font-inter leading-relaxed drop-shadow-md">
-                {slides[index].content}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+          <path d="M950 820 H1200 L1340 690 H1600" stroke="#D4AF37" strokeWidth="0.9" opacity="0.4" />
+          <path d="M1200 820 V940" stroke="#D4AF37" strokeWidth="0.5" opacity="0.22" />
+          <circle cx="1200" cy="820" r="4" fill="#D4AF37" opacity="0.5" />
 
-          {/* Action and Market Status aligned Left */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex flex-col sm:flex-row items-center gap-10 lg:gap-12"
+          <path
+            d="M0 480 H180 L260 400 H420"
+            stroke="#F9E498" strokeWidth="2" opacity="0.7"
+            strokeDasharray="10 160" strokeDashoffset="0"
           >
-            {/* Kept original button bg-orange-300/70 as requested */}
-            <Link 
-              href="/contact" 
-              className="w-full sm:w-auto bg-orange-300/70 text-black px-12 py-5 rounded-2xl font-nasal text-[12px] tracking-widest uppercase shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white"
-            >
-              Initialize Trade
-            </Link>
-            
-            <div className="flex items-center gap-3">
-              <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse shadow-[0_0_15px_rgba(74,222,128,0.8)]" />
-              <div className="flex flex-col">
-                <span className="font-audiowide text-[9px] text-white/50 uppercase tracking-tighter">Market Status</span>
-                <span className="font-nasal text-[13px] text-white uppercase font-medium">Dubai Open</span>
-              </div>
-            </div>
-          </motion.div>
+            <animate attributeName="stroke-dashoffset" from="0" to="-220" dur="3s" repeatCount="indefinite" />
+          </path>
+          <path
+            d="M1100 140 H1380 L1480 50"
+            stroke="#F9E498" strokeWidth="2" opacity="0.6"
+            strokeDasharray="9 120" strokeDashoffset="0"
+          >
+            <animate attributeName="stroke-dashoffset" from="0" to="-180" dur="4s" repeatCount="indefinite" begin="1s" />
+          </path>
+          <path
+            d="M950 820 H1200 L1340 690 H1600"
+            stroke="#F9E498" strokeWidth="2" opacity="0.5"
+            strokeDasharray="12 180" strokeDashoffset="0"
+          >
+            <animate attributeName="stroke-dashoffset" from="0" to="-260" dur="3.5s" repeatCount="indefinite" begin="0.5s" />
+          </path>
 
-        </div>
-      </Container>
+          <circle cx="180" cy="480" r="5" fill="none" stroke="#D4AF37" strokeWidth="1" opacity="0.55">
+            <animate attributeName="r" values="5;12;5" dur="2.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.55;0.05;0.55" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="1200" cy="820" r="5" fill="none" stroke="#D4AF37" strokeWidth="1" opacity="0.45">
+            <animate attributeName="r" values="5;10;5" dur="3.2s" repeatCount="indefinite" begin="1.2s" />
+            <animate attributeName="opacity" values="0.45;0.05;0.45" dur="3.2s" repeatCount="indefinite" begin="1.2s" />
+          </circle>
+        </svg>
+      </div>
+
+      {/* ── LEFT: TYPOGRAPHY (Updated Animation Logic) ── */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 flex flex-col px-6 lg:px-16 lg:py-0 lg:flex-1 lg:max-w-[62%]"
+      >
+        {/* Primary Heading */}
+        <motion.h1
+          variants={itemVariants}
+          style={{
+            fontFamily: "var(--font-audiowide), sans-serif",
+            fontSize: "clamp(48px, 11vw, 92px)",
+            fontWeight: 900,
+            lineHeight: 0.88,
+            letterSpacing: "-0.01em",
+            textTransform: "uppercase",
+          }}
+        >
+          <span style={{ color: "#ffffff", display: "block" }}>QUANTUM</span>
+          <span
+            style={{
+              display: "block",
+              fontStyle: "italic",
+              background: "linear-gradient(90deg, #AA8A22 0%, #F9E498 45%, #AA8A22 100%)",
+              backgroundSize: "200% auto",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              animation: "goldShimmer 6s linear infinite",
+            }}
+          >
+            LIQUIDITY
+          </span>
+        </motion.h1>
+
+        {/* Subtext */}
+        <motion.p
+          variants={itemVariants}
+          className="mt-6 max-w-md"
+          style={{
+            fontFamily: "var(--font-body), sans-serif",
+            fontSize: "clamp(13px, 1.8vw, 15px)",
+            fontWeight: 300,
+            color: "rgba(255,255,255,0.48)",
+            lineHeight: 1.75,
+          }}
+        >
+          Advanced digital trading infrastructure and real-time market analytics at your fingertips.
+        </motion.p>
+
+        {/* CTA Row */}
+        <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mt-10">
+          <button
+            className="flex items-center gap-2 group"
+            style={{
+              fontFamily: "var(--font-nasal), sans-serif",
+              fontSize: "12px",
+              fontWeight: 600,
+              letterSpacing: "0.13em",
+              color: "#1a1500",
+              background: "linear-gradient(135deg, #F9E498 0%, #D4AF37 55%, #AA8A22 100%)",
+              border: "none",
+              borderRadius: "6px",
+              padding: "13px 26px",
+              cursor: "pointer",
+            }}
+          >
+            INITIALIZE PROTOCOL
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+          </button>
+
+          <div
+            className="flex items-center gap-3"
+            style={{
+              background: "rgba(10,10,8,0.85)",
+              border: "1px solid rgba(255,255,255,0.07)",
+              borderRadius: "8px",
+              padding: "10px 16px",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+            </span>
+            <div style={{ lineHeight: 1.3 }}>
+              <span
+                style={{
+                  fontFamily: "var(--font-nasal), sans-serif",
+                  fontSize: "9px",
+                  letterSpacing: "0.1em",
+                  color: "rgba(255,255,255,0.38)",
+                  display: "block",
+                }}
+              >
+                DUBAI HUB
+              </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-nasal), sans-serif",
+                  fontSize: "11px",
+                  letterSpacing: "0.08em",
+                  fontWeight: 600,
+                  color: "#fff",
+                  display: "block",
+                }}
+              >
+                DHJ HUB ACTIVE
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* ── RIGHT: CUBE IMAGE (Unchanged Animation) ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.3, delay: 0.7 }}
+        className="relative z-10 flex justify-center items-center flex-1 w-full py-12 lg:py-0"
+      >
+        <div
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            width: "clamp(360px, 65%, 640px)",
+            height: "clamp(360px, 65%, 640px)",
+            background: "radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.05) 50%, transparent 75%)",
+          }}
+        />
+
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 600 600"
+          preserveAspectRatio="xMidYMid meet"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M60 320 H190 L240 270" stroke="#D4AF37" strokeWidth="0.8" opacity="0.35" />
+          <path d="M60 345 H150 L175 320" stroke="#D4AF37" strokeWidth="0.4" opacity="0.2" />
+          <path d="M540 320 H410 L360 270" stroke="#D4AF37" strokeWidth="0.8" opacity="0.35" />
+          <path d="M540 345 H450 L425 320" stroke="#D4AF37" strokeWidth="0.4" opacity="0.2" />
+          <path d="M300 500 V400 L335 365" stroke="#D4AF37" strokeWidth="0.6" opacity="0.3" />
+
+          <path
+            d="M60 320 H190 L240 270"
+            stroke="#F9E498" strokeWidth="1.8" opacity="0.65"
+            strokeDasharray="8 100" strokeDashoffset="0"
+          >
+            <animate attributeName="stroke-dashoffset" from="0" to="-160" dur="3.2s" repeatCount="indefinite" begin="0.7s" />
+          </path>
+        </svg>
+
+        <motion.div
+          animate={{ y: [0, -22, 0] }}
+          transition={{ duration: 7, ease: "easeInOut", repeat: Infinity }}
+          style={{
+            width: "clamp(340px, 58vw, 500px)",
+            position: "relative",
+            zIndex: 2,
+          }}
+        >
+          <Image
+            src="/gold-cube-v2.png"
+            alt="Quantum Core Cube"
+            width={520}
+            height={520}
+            priority
+            className="w-full h-auto object-contain"
+          />
+        </motion.div>
+      </motion.div>
+
+      <style jsx global>{`
+        @keyframes goldShimmer {
+          from { background-position: -200% center; }
+          to   { background-position: 200% center; }
+        }
+      `}</style>
     </section>
   );
 }

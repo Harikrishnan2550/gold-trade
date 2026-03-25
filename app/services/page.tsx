@@ -10,7 +10,7 @@ export default function ServicesPage() {
       <ServicesHero />
       
       {/* Services Grid with subtle white cards */}
-      <div className="bg-[#FBFBFB] py-10">
+      <div className="bg-[#FBFBFB] ">
         <ServicesGrid />
       </div>
 

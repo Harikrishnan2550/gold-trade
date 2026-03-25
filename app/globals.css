@@ -1,149 +1,109 @@
-/* 1. GOOGLE FONTS - MUST BE AT TOP */
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Outfit:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
-
 @import "tailwindcss";
 
-/* 2. LOCAL FONT */
-@font-face {
-  font-family: 'Nasalization';
-  src: url('/fonts/nasalization.woff2') format('woff2');
-  font-display: swap;
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* 3. DESIGN TOKENS */
 @theme {
   --color-gold: #D4AF37;
   --color-gold-light: #F9E498;
   --color-gold-dark: #AA8A22;
   --color-premium: #050505;
-
+  /* Font families mapped to your local assets */
   --font-nasal: "Nasalization", sans-serif;
-  --font-outfit: "Outfit", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
   --font-audiowide: "Audiowide", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
 
-  /* Custom Animations */
-  @keyframes shimmer {
-    from { transform: translateX(-100%) skewX(-20deg); }
-    to { transform: translateX(200%) skewX(-20deg); }
+@layer base {
+  body {
+    @apply bg-[#050505] text-white antialiased overflow-x-hidden;
+    font-family: var(--font-poppins);
   }
 }
 
-/* 4. BASE STYLES */
-body {
-  background: #050505;
-  color: white;
-  font-family: var(--font-poppins);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer utilities {
+  /* ── 1. THE OBSIDIAN TEXTURE (High-End Material Look) ── */
+  .bg-obsidian {
+    background-color: #050505;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
+  }
 
-/* Typography Consistency */
-h1, h2, h3, h4, h5, h6, nav, button, footer h2, footer h3 {
-  font-family: var(--font-audiowide);
-  letter-spacing: 0.05em;
-}
+  /* ── 2. NEON GLOW FILTERS (Makes lines "Seened" and Bright) ── */
+  .glow-gold {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8)) 
+            drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+  }
 
-/* 5. UTILITIES */
+  /* ── 3. GRADIENTS & SHIMMERS ── */
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-[#AA8A22] via-[#F9E498] to-[#AA8A22] bg-clip-text text-transparent bg-[length:200%_auto];
+  }
 
-/* Core Typography */
-@utility font-nasal { font-family: var(--font-nasal); }
-@utility font-heading { font-family: var(--font-audiowide); }
-@utility font-body { font-family: var(--font-poppins); }
+  @keyframes shimmer {
+    from { background-position: -200% center; }
+    to { background-position: 200% center; }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 6s linear infinite;
+  }
 
-@utility tracking-tighter { letter-spacing: -0.06em; }
-@utility leading-tight { line-height: 0.95; }
+  /* ── 4. ROBOTIC & DATA ANIMATIONS ── */
+  @keyframes data-stream {
+    0% { stroke-dashoffset: 100%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { stroke-dashoffset: -100%; opacity: 0; }
+  }
 
-/* Premium Design Elements */
-@utility glass-card {
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.1);
-  border-radius: 24px;
-}
+  .animate-data-stream {
+    animation: data-stream 4s linear infinite;
+  }
 
-@utility gold-corner-badge {
-  background: linear-gradient(135deg, transparent 50%, #AA8A22 50%, #F9E498 75%, #AA8A22 100%);
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
-}
+  @keyframes scan-vertical {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
 
-@utility text-gold-gradient {
-  background: linear-gradient(to right, #AA8A22 0%, #F9E498 50%, #AA8A22 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% auto;
-}
+  .animate-scan-laser {
+    animation: scan-vertical 3s linear infinite;
+  }
 
-/* 6. BUTTONS & LABELS */
-@utility btn-primary {
-  font-family: var(--font-audiowide);
-  background: linear-gradient(135deg, #D4AF37, #AA8A22);
-  color: black;
-  padding: 14px 32px;
-  border-radius: 14px;
-  transition: 0.4s;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 13px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+  /* ── 5. SPARKLES & EMBERS (The reference effect) ── */
+  .ember {
+    @apply absolute rounded-full bg-gold opacity-0 pointer-events-none;
+    filter: blur(1px) drop-shadow(0 0 8px #F9E498);
+  }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.4);
-}
+  @keyframes float-ember {
+    0% { transform: translateY(0) translateX(0) scale(1.5); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(-100vh) translateX(40px) scale(0); opacity: 0; }
+  }
 
-@utility text-tech-label {
-  font-family: var(--font-audiowide);
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  font-size: 10px;
-  color: #D4AF37;
-}
+  .animate-ember {
+    animation: float-ember var(--duration) linear infinite;
+    animation-delay: var(--delay);
+  }
 
-/* 7. ANIMATIONS */
-.animate-shimmer {
-  animation: shimmer 2.5s infinite;
-}
+  /* ── 6. INDUSTRIAL SURFACES ── */
+  .bg-floor-industrial {
+    @apply bg-[#050505];
+    background-image: 
+      radial-gradient(at 50% 100%, rgba(212, 175, 55, 0.05) 0%, transparent 80%),
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+  }
 
-@keyframes shine {
-  from { transform: translateX(-100%) skewX(-15deg); }
-  to { transform: translateX(200%) skewX(-15deg); }
-}
+  .mask-gold-nugget {
+    mask-image: radial-gradient(circle, black 30%, transparent 85%);
+    -webkit-mask-image: radial-gradient(circle, black 30%, transparent 85%);
+    filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.3));
+  }
 
-.shine-effect {
-  position: relative;
-  overflow: hidden;
-}
-
-.shine-effect::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(212, 175, 55, 0.2), /* Slightly increased opacity for better visibility on dark themes */
-    transparent
-  );
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-/* FIX: Split animation and opacity into separate lines */
-.shine-effect:hover::after {
-  animation: shine 1s ease-in-out;
-  opacity: 1;
+  /* ── 7. PREMIUM BORDERS ── */
+  .border-quantum {
+    border: 1px solid transparent;
+    background: linear-gradient(#080808, #080808) padding-box,
+                linear-gradient(135deg, rgba(212,175,55,0.4), transparent, rgba(255,255,255,0.1)) border-box;
+  }
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import Hero from "@/components/sections/Hero";
 import Trust from "@/components/sections/Trust";
 import AboutPreview from "@/components/sections/AboutPreview";
@@ -6,26 +8,43 @@ import WhyChoose from "@/components/sections/WhyChoose";
 import Process from "@/components/sections/Process";
 import CTA from "@/components/sections/CTA";
 import HeroMarketData from "@/components/sections/HeroMarketData";
-
+import QuantumBackground from "@/components/ui/QuantumBackground"; // New import
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative">
+      {/* Global Robotic & Sparkle Layer */}
+      <QuantumBackground />
+
       <Hero />
 
-      <Trust />
+      <section className="relative z-10">
+        <Trust />
+      </section>
 
-      <AboutPreview />
+      <section className="relative z-10">
+        <AboutPreview />
+      </section>
 
-      <HeroMarketData/>
+      <section className="relative z-10">
+        <HeroMarketData/>
+      </section>
 
-      <Services />
+      <section className="relative z-10">
+        <Services />
+      </section>
 
-      <WhyChoose />
+      <section className="relative z-10">
+        <WhyChoose />
+      </section>
 
-      <Process />
+      <section className="relative z-10">
+        <Process />
+      </section>
 
-      <CTA />
+      <section className="relative z-10">
+        <CTA />
+      </section>
     </main>
   );
 }
