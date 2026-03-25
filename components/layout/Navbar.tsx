@@ -61,7 +61,7 @@ export default function Navbar() {
             </motion.div>
             <div className="font-audiowide text-xl lg:text-2xl tracking-tighter text-white uppercase overflow-visible">
               Zanora <span className="relative inline-flex items-center overflow-visible">
-                <span className="text-gold-gradient italic pr-2 -mr-2 block">Terminal</span>
+                <span className="text-gold-gradient italic pr-2 -mr-2 block">FZC</span>
               </span>
             </div>
           </Link>
