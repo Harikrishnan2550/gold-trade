@@ -29,6 +29,7 @@ export default function ServicesHero() {
         ease: [0.22, 1, 0.36, 1],
       },
     }),
+    
   };
 
   return (
