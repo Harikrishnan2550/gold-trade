@@ -26,7 +26,7 @@ const itemVariants: Variants = {
     filter: "blur(0px)",
     transition: { 
       duration: 1.2, 
-      // FIXED: Added 'as any' to satisfy Vercel's strict TypeScript build
+      // The "as any" is the critical fix for the Vercel Build worker
       ease: [0.22, 1, 0.36, 1] as any 
     } 
   },
