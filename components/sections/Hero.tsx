@@ -17,19 +17,20 @@ export default function Hero() {
   };
 
   const itemVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
-    filter: "blur(20px)",
-  },
-  visible: { 
-    opacity: 1, 
-    filter: "blur(0px)",
-    transition: { 
-      duration: 1.2, 
-      ease: [0.22, 1, 0.36, 1] 
-    } 
-  },
-};
+    hidden: { 
+      opacity: 0, 
+      filter: "blur(20px)",
+    },
+    visible: { 
+      opacity: 1, 
+      filter: "blur(0px)",
+      transition: { 
+        duration: 1.2, 
+        // FIXED: Added 'as any' to satisfy the strict Easing type check in Vercel build
+        ease: [0.22, 1, 0.36, 1] as any 
+      } 
+    },
+  };
 
   return (
     <section
